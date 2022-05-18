@@ -40,12 +40,12 @@ if not track_param.read(toppath + "/params/driving_task.ini"):
 track_specifier = json.loads(track_param.get('DRIVING_TASK', 'track'))
 
 # define all relevant paths
-path_dict = {'globtraj_input_path': toppath + "/inputs/traj_ltpl_cl/traj_ltpl_cl_" + track_specifier + ".csv",
-             'graph_store_path': toppath + "/inputs/stored_graph.pckl",
-             'ltpl_offline_param_path': toppath + "/params/ltpl_config_offline.ini",
-             'ltpl_online_param_path': toppath + "/params/ltpl_config_online.ini",
-             'log_path': toppath + "/logs/graph_ltpl/",
-             'graph_log_id': datetime.datetime.now().strftime("%Y_%m_%d__%H_%M_%S")
+path_dict = {'globtraj_input_path': toppath + "/inputs/traj_ltpl_cl/traj_ltpl_cl_" + track_specifier + ".csv", #race line
+             'graph_store_path': toppath + "/inputs/stored_graph.pckl", #new path to store graph of offline graph (?)
+             'ltpl_offline_param_path': toppath + "/params/ltpl_config_offline.ini", #params for generating offline graph (all possible nodes, splines, etc.)
+             'ltpl_online_param_path': toppath + "/params/ltpl_config_online.ini", #params for generating online graph (all possible nodes, splines, etc.)
+             'log_path': toppath + "/logs/graph_ltpl/",  #new path to store local path csv's and messages that are regularly updated and published? and offline graphs
+             'graph_log_id': datetime.datetime.now().strftime("%Y_%m_%d__%H_%M_%S") #date time for organizing logs
              }
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -54,7 +54,7 @@ path_dict = {'globtraj_input_path': toppath + "/inputs/traj_ltpl_cl/traj_ltpl_cl
 
 # intialize graph_ltpl-class
 ltpl_obj = graph_ltpl.Graph_LTPL.Graph_LTPL(path_dict=path_dict,
-                                            visual_mode=True,
+                                            visual_mode=True, #disable when actually running on car
                                             log_to_file=True)
 
 # calculate offline graph
