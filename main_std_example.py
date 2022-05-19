@@ -67,7 +67,7 @@ pos_est = refline[0, :]
 heading_est = np.arctan2(np.diff(refline[0:2, 1]), np.diff(refline[0:2, 0])) - np.pi / 2
 vel_est = 0.0
 
-# set start pos
+# set start pos, where car is starting and facing, places car on graph?
 ltpl_obj.set_startpos(pos_est=pos_est,
                       heading_est=heading_est)
 

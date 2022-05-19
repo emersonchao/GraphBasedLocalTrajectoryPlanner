@@ -306,7 +306,7 @@ class Graph_LTPL(object):
         Calculate paths for current time-step.
 
         :param prev_action_id:  trajectory set pursued in previous iteration ['straight', 'follow', 'left', 'right']
-        :param prev_traj_idx:   trajectory index folloed in previous iteration (if multiple per set)
+        :param prev_traj_idx:   trajectory index followed in previous iteration (if multiple per set)
         :param object_list:     list of dicts, each dict describing an object with keys ['type', 'X', 'Y', 'theta', ...]
         :param blocked_zones:   dict, each key holding the zone ID and each value descr. a zone list with the values:
                                 [blocked layer nbrs, blocked node nbrs, left bound of region, right bound of region]
