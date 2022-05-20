@@ -37,10 +37,20 @@ track_param = configparser.ConfigParser()
 if not track_param.read(toppath + "/params/driving_task.ini"):
     raise ValueError('Specified online parameter config file does not exist or is empty!')
 
-track_specifier = json.loads(track_param.get('DRIVING_TASK', 'track'))
+
+
+"""
+@@@@@@@@@@@@@@@@@@@@@@@@@@
+GET CSV FOR RACE LINE HERE
+
+set 'globtraj_input_path' to path of wherever Team4 stores race line
+@@@@@@@@@@@@@@@@@@@@@@@@@@
+"""
+
+track_specifier = json.loads(track_param.get('DRIVING_TASK', 'track')) #name of track
 
 # define all relevant paths
-path_dict = {'globtraj_input_path': toppath + "/inputs/traj_ltpl_cl/traj_ltpl_cl_" + track_specifier + ".csv", #race line
+path_dict = {'globtraj_input_path': toppath + "/inputs/traj_ltpl_cl/traj_ltpl_cl_" + track_specifier + ".csv", #replace with path of wherever Team4 stores race line
              'graph_store_path': toppath + "/inputs/stored_graph.pckl", #new path to store graph of offline graph (?)
              'ltpl_offline_param_path': toppath + "/params/ltpl_config_offline.ini", #params for generating offline graph (all possible nodes, splines, etc.)
              'ltpl_online_param_path': toppath + "/params/ltpl_config_online.ini", #params for generating online graph (all possible nodes, splines, etc.)
@@ -99,10 +109,21 @@ tic = time.time()
 while True:
     # -- SELECT ONE OF THE PROVIDED TRAJECTORIES -----------------------------------------------------------------------
     # (here: brute-force, replace by sophisticated behavior planner)
+    """
+    @@@@@@@@@@@@@@@@@@@@@@@
+    USE BEHAVIOR VALUE HERE
+    @@@@@@@@@@@@@@@@@@@@@@@
+    """
     for sel_action in ["right", "left", "straight", "follow"]:  # try to force 'right', else try next in list
         if sel_action in traj_set.keys():
             break
 
+
+    """
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    INPUT OBJECT LIST FROM SENSOR FUSION TEAM HERE
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    """
     # get simple object list (one vehicle driving around the track)
     obj_list = obj_list_dummy.get_objectlist()
 
@@ -129,6 +150,11 @@ while True:
     # -- SEND TRAJECTORIES TO CONTROLLER -------------------------------------------------------------------------------
     # select a trajectory from the set and send it to the controller here
 
+    """
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    PUBLISH TRAJ_SET FOR RACE CONTROL HERE!
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    """
 
     # -- LOGGING -------------------------------------------------------------------------------------------------------
     ltpl_obj.log()
