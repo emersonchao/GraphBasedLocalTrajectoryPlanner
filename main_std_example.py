@@ -63,11 +63,11 @@ ltpl_obj.graph_init()
 # set start pose based on first point in provided reference-line
 refline = graph_ltpl.imp_global_traj.src.import_globtraj_csv.\
     import_globtraj_csv(import_path=path_dict['globtraj_input_path'])[0]
-pos_est = refline[0, :]
-heading_est = np.arctan2(np.diff(refline[0:2, 1]), np.diff(refline[0:2, 0])) - np.pi / 2
+pos_est = refline[0, :] #position along race line
+heading_est = np.arctan2(np.diff(refline[0:2, 1]), np.diff(refline[0:2, 0])) - np.pi / 2 #where is car facing
 vel_est = 0.0
 
-# set start pos, where car is starting and facing, places car on graph?
+#puts car on graph based on start pose
 ltpl_obj.set_startpos(pos_est=pos_est,
                       heading_est=heading_est)
 
@@ -87,10 +87,11 @@ obj_list_dummy = graph_ltpl.testing_tools.src.objectlist_dummy.ObjectlistDummy(d
 #        * blocked node numbers (in the graph) - pairwise with blocked layer numbers
 #        * numpy array holding coordinates of left bound of region (columns x and y)
 #        * numpy array holding coordinates of right bound of region (columns x and y)
-zone_example = {'sample_zone': [[64, 64, 64, 64, 64, 64, 64, 65, 65, 65, 65, 65, 65, 65, 66, 66, 66, 66, 66, 66, 66],
-                                [0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6],
-                                np.array([[-20.54, 227.56], [23.80, 186.64]]),
-                                np.array([[-23.80, 224.06], [20.17, 183.60]])]}
+
+zone_example = {'sample_zone': [[64, 64, 64, 64, 64, 64, 64, 65, 65, 65, 65, 65, 65, 65, 66, 66, 66, 66, 66, 66, 66], #blocked layers
+                                [0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6], #blocked nodes, pair with blocked layers
+                                np.array([[-20.54, 227.56], [23.80, 186.64]]), #left bound region
+                                np.array([[-23.80, 224.06], [20.17, 183.60]])]} #right bound region
 
 traj_set = {'straight': None}
 tic = time.time()
@@ -127,6 +128,7 @@ while True:
 
     # -- SEND TRAJECTORIES TO CONTROLLER -------------------------------------------------------------------------------
     # select a trajectory from the set and send it to the controller here
+
 
     # -- LOGGING -------------------------------------------------------------------------------------------------------
     ltpl_obj.log()

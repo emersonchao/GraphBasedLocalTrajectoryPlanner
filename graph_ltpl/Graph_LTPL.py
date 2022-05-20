@@ -405,7 +405,10 @@ class Graph_LTPL(object):
                 # NOTE: cut exported trajectory to specified length (e.g. determined by planned velocity volume)
                 self.__action_set[action_id][i] = self.__action_set[action_id][i][:self.__nmbr_export_points, :]
 
-        return self.__action_set, self.__action_set_id, self.__traj_time
+        #print(self.__action_set)
+        #print(self.__action_set_id)
+        #print(self.__traj_time)
+        return self.__action_set, self.__action_set_id, self.__traj_time  #action_set aka trajectory set looks like (s, x, y, heading, curvature, vel, accel)
 
     # ------------------------------------------------------------------------------------------------------------------
 

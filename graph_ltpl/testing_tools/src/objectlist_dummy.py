@@ -174,17 +174,17 @@ class ObjectlistDummy(object):
             # define dummy objects for testing at specified position
             objA = {'X': 127, 'Y': 82, 'theta': 0.0, 'type': 'physical',
                     'id': 1, 'length': 5.0, 'width': 2.5, 'v': 0.0}
-            # objB = {'X': 11.1, 'Y': 53, 'theta': 0.0, 'type': 'car', 'form': 'rectangle',
-            #         'id': 1, 'length': 5.0, 'width': 2.5, 'v_x': 0.0}
-            # objC = {'X': 2.9, 'Y': 41.7, 'theta': 0.0, 'type': 'car', 'form': 'rectangle',
-            #         'id': 1, 'length': 5.0, 'width': 2.5, 'v_x': 0.0}
-            # objD = {'X': -4.0, 'Y': 32.0, 'theta': 0.0, 'type': 'car', 'form': 'rectangle',
-            #         'id': 1, 'length': 5.0, 'width': 2.5, 'v_x': 0.0}
-            # objE = {'X': -11.7, 'Y': 19.3, 'theta': 0.0, 'type': 'car', 'form': 'rectangle',
-            #         'id': 1, 'length': 5.0, 'width': 2.5, 'v_x': 0.0}
+            objB = {'X': 11.1, 'Y': 53, 'theta': 0.0, 'type': 'physical',
+                     'id': 1, 'length': 5.0, 'width': 2.5, 'v': 0.0}
+            objC = {'X': 2.9, 'Y': 41.7, 'theta': 0.0, 'type': 'physical',
+                     'id': 1, 'length': 5.0, 'width': 2.5, 'v': 0.5}
+            objD = {'X': -4.0, 'Y': 32.0, 'theta': 0.0, 'type': 'physical',
+                     'id': 1, 'length': 5.0, 'width': 2.5, 'v': 1.0}
+            objE = {'X': -11.7, 'Y': 19.3, 'theta': 0.0, 'type': 'physical',
+                    'id': 1, 'length': 5.0, 'width': 2.5, 'v': 2.0}
 
             # fuse objects in list in order to obtain proper format
-            obj_list = [objA]  # , objB, objC, objD, objE]
+            obj_list = [objA, objB, objC, objD, objE]
 
         return obj_list
 
