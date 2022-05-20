@@ -85,6 +85,11 @@ ltpl_obj.set_startpos(pos_est=pos_est,
 # ONLINE LOOP ----------------------------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------------------------------------
 
+"""
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+INPUT OBJECT LIST FROM SENSOR FUSION TEAM HERE
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+"""
 # init dummy object list
 obj_list_dummy = graph_ltpl.testing_tools.src.objectlist_dummy.ObjectlistDummy(dynamic=True,
                                                                                vel_scale=0.3,
@@ -119,11 +124,6 @@ while True:
             break
 
 
-    """
-    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    INPUT OBJECT LIST FROM SENSOR FUSION TEAM HERE
-    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    """
     # get simple object list (one vehicle driving around the track)
     obj_list = obj_list_dummy.get_objectlist()
 
