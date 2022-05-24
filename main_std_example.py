@@ -77,6 +77,12 @@ pos_est = refline[0, :] #position along race line
 heading_est = np.arctan2(np.diff(refline[0:2, 1]), np.diff(refline[0:2, 0])) - np.pi / 2 #where is car facing
 vel_est = 0.0
 
+
+"""
+@@@@@@@@@@@@@@@@@@@@@@@@@@
+POSSIBLE LOCALIZATION HERE
+@@@@@@@@@@@@@@@@@@@@@@@@@@
+"""
 #puts car on graph based on start pose
 ltpl_obj.set_startpos(pos_est=pos_est,
                       heading_est=heading_est)
