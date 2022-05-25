@@ -120,6 +120,7 @@ tic = time.time()
 while True:
     # -- SELECT ONE OF THE PROVIDED TRAJECTORIES -----------------------------------------------------------------------
     # (here: brute-force, replace by sophisticated behavior planner)
+
     """
     @@@@@@@@@@@@@@@@@@@@@@@
     USE BEHAVIOR VALUE HERE
@@ -152,7 +153,6 @@ while True:
     # -- CALCULATE VELOCITY PROFILE AND RETRIEVE TRAJECTORIES ----------------------------------------------------------
     traj_set = ltpl_obj.calc_vel_profile(pos_est=pos_est,
                                          vel_est=vel_est)[0]
-
     # -- SEND TRAJECTORIES TO CONTROLLER -------------------------------------------------------------------------------
     # select a trajectory from the set and send it to the controller here
 
